@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Project Portfolio | Wasiq Ali - Data Analyst Portfolio</title>
+    <meta name="description" content="Complete collection of all data analytics, BI dashboards, statistical modeling, and research projects">
+    <meta name="keywords" content="data analyst projects, business intelligence, Power BI, Python, R, SQL, Excel, portfolio, data visualization">
+    <meta name="author" content="Wasiq Ali">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --secondary: #4cc9f0;
+            --accent: #f72585;
+            --dark: #14213d;
+            --darker: #0d1b2a;
+            --light: #f8f9fa;
+            --gray: #8d99ae;
+            --success: #2ec4b6;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --card-bg: rgba(30, 41, 59, 0.8);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .light-mode {
+            --dark: #f8f9fa;
+            --darker: #e9ecef;
+            --light: #14213d;
+            --gray: #6c757d;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(20, 33, 61, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(141, 153, 174, 0.2);
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid rgba(141, 153, 174, 0.3);
+            width: 50px;
+            height: 26px;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+        }
+        
+        .theme-toggle i {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle .sun {
+            color: #ffd43b;
+        }
+        
+        .theme-toggle .moon {
+            color: #ced4da;
+            opacity: 0;
+            position: absolute;
+            right: 5px;
+        }
+        
+        .theme-toggle.active .sun {
+            opacity: 0;
+        }
+        
+        .theme-toggle.active .moon {
+            opacity: 1;
+        }
+        
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--secondary);
+            left: 4px;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle.active::before {
+            transform: translateX(24px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+        }
+
+        /* Projects Hero Section */
+        .projects-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(13, 27, 42, 0.9), rgba(20, 33, 61, 0.9));
+        }
+        
+        .projects-hero h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .projects-hero h1 span {
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .projects-hero p {
+            font-size: 1.4rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .projects-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* Advanced Filter System */
+        .advanced-filters {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(141, 153, 174, 0.2);
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .filter-title {
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--darker);
+            border-radius: 50px;
+            padding: 12px 20px;
+            width: 300px;
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--light);
+            width: 100%;
+            padding: 0 10px;
+            font-size: 1rem;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+        }
+        
+        .search-box i {
+            color: var(--gray);
+        }
+        
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--darker);
+            border: 1px solid rgba(141, 153, 174, 0.3);
+            border-radius: 30px;
+            color: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-size: 1rem;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(67, 97, 238, 0.6);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(76, 201, 240, 0.15);
+        }
+
+        /* Projects Grid */
+        .projects-container {
+            position: relative;
+            min-height: 60vh;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(141, 153, 174, 0.2);
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .project-img {
+            height: 220px;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .project-category {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tech {
+            background: rgba(67, 97, 238, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(141, 153, 174, 0.3);
+            color: var(--light);
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .project-date, .project-duration {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .project-link:hover {
+            background: rgba(76, 201, 240, 0.15);
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            display: none;
+        }
+        
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .no-results h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        /* Project Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        
+        .modal-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid rgba(141, 153, 174, 0.2);
+        }
+        
+        .modal-header {
+            padding: 30px;
+            background: rgba(20, 33, 61, 0.9);
+            border-bottom: 1px solid rgba(141, 153, 174, 0.3);
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .modal-subtitle {
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(247, 37, 133, 0.2);
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            text-align: left;
+        }
+        
+        .modal-img {
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .modal-details p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        
+        .modal-details ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .modal-details li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .modal-tech {
+            margin-top: 30px;
+        }
+        
+        .modal-tech h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-about p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            color: var(--secondary);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(141, 153, 174, 0.2);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(141, 153, 174, 0.2);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .filter-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(20, 33, 61, 0.95);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                border-top: 1px solid rgba(141, 153, 174, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 15px 20px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .projects-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .projects-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .projects-stats {
+                gap: 20px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .filter-options {
+                gap: 8px;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .project-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo-container">
+                    <div class="logo-img">WA</div>
+                    <div class="logo-text">Wasiq Ali</div>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html" class="active">All Projects</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <div class="theme-toggle">
+                        <i class="fas fa-sun sun"></i>
+                        <i class="fas fa-moon moon"></i>
+                    </div>
+                    <button class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1 data-aos="fade-down">Complete <span>Project Portfolio</span></h1>
+            <p data-aos="fade-up">A comprehensive collection of all my data analytics, business intelligence, statistical modeling, and research projects showcasing diverse skills and real-world applications.</p>
+            
+            <div class="projects-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-projects">35+</div>
+                    <div class="stat-label">Total Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">12+</div>
+                    <div class="stat-label">Industries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Filter System -->
+    <section class="section">
+        <div class="container">
+            <div class="advanced-filters" data-aos="fade-up">
+                <div class="filter-header">
+                    <h2 class="filter-title">Filter Projects</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="project-search" placeholder="Search projects by name, technology, or description...">
+                    </div>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label>Technology</label>
+                        <div class="filter-options" id="tech-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="powerbi">Power BI</button>
+                            <button class="filter-btn" data-filter="python">Python</button>
+                            <button class="filter-btn" data-filter="r">R Programming</button>
+                            <button class="filter-btn" data-filter="sql">SQL</button>
+                            <button class="filter-btn" data-filter="excel">Excel</button>
+                            <button class="filter-btn" data-filter="tableau">Tableau</button>
+                            <button class="filter-btn" data-filter="web">Web Development</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Project Type</label>
+                        <div class="filter-options" id="type-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="dashboard">Dashboard</button>
+                            <button class="filter-btn" data-filter="analysis">Data Analysis</button>
+                            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                            <button class="filter-btn" data-filter="research">Research</button>
+                            <button class="filter-btn" data-filter="visualization">Visualization</button>
+                            <button class="filter-btn" data-filter="webapp">Web Application</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Industry</label>
+                        <div class="filter-options" id="industry-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="retail">Retail</button>
+                            <button class="filter-btn" data-filter="finance">Finance</button>
+                            <button class="filter-btn" data-filter="hr">HR Analytics</button>
+                            <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+                            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                            <button class="filter-btn" data-filter="public">Public Sector</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="apply-filters">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                    <button class="btn btn-outline" id="reset-filters">
+                        <i class="fas fa-redo"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="projects-container">
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+                
+                <div class="no-results" id="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>No Projects Found</h3>
+                    <p>Try adjusting your filters or search terms to find what you're looking for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Project Title</h3>
+                <p class="modal-subtitle" id="modal-subtitle">Project Category | Technologies Used</p>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img id="modal-image" src="" alt="Project Details">
+                </div>
+                <div class="modal-details">
+                    <h3>Project Overview</h3>
+                    <p id="modal-overview">Project overview will be loaded here...</p>
+                    
+                    <h3>Key Achievements</h3>
+                    <ul id="modal-achievements">
+                        <!-- Achievements will be loaded here -->
+                    </ul>
+                    
+                    <div class="modal-tech">
+                        <h3>Technology Stack</h3>
+                        <div class="tech-stack" id="modal-tech-stack">
+                            <!-- Tech stack will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions" style="margin-top: 30px;">
+                        <a href="#" class="btn btn-primary" id="modal-live-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="btn btn-outline" id="modal-source-code">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-about">
+                    <h4>About My Portfolio</h4>
+                    <p>Comprehensive showcase of data analytics and business intelligence projects demonstrating expertise in transforming complex data into actionable insights.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/phantom-analyst" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Code-MasterMind" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://youtube.com/@TheStatsStation" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="projects.html"><i class="fas fa-chevron-right"></i> All Projects</a>
+                        <a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a>
+                        <a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Multan, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 305 6884692</p>
+                    <p><i class="fas fa-envelope"></i> wasiqali3112@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Wasiq Ali. All Rights Reserved. | Designed with ❤️ for Data Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            themeToggle.classList.toggle('active');
+            
+            // Save preference to localStorage
+            if(body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if(savedTheme === 'light') {
+            body.classList.add('light-mode');
+            themeToggle.classList.add('active');
+        }
+        
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Comprehensive Project Data
+        const allProjects = [
+            {
+                id: 1,
+                title: "Retail Sales Analysis Dashboard",
+                category: "Power BI | Data Visualization",
+                description: "Comprehensive Power BI dashboard analyzing retail sales performance across regions and product categories with interactive KPI tracking.",
+                longDescription: "This comprehensive Power BI dashboard was developed for a retail chain to analyze sales performance across different regions, product categories, and time periods. The solution transformed complex sales data into actionable insights for strategic decision-making.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "DAX", "Power Query", "SQL", "Excel"],
+                achievements: [
+                    "Reduced inventory costs by 22% through optimized stock management",
+                    "Identified high-value customer segments leading to 15% increase in repeat business",
+                    "Automated reporting saving 20+ hours per week in manual reporting",
+                    "Implemented real-time sales tracking across all locations"
+                ],
+                type: "dashboard",
+                industry: "retail",
+                tech: ["powerbi", "sql", "excel"],
+                date: "2023-06-15",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 2,
+                title: "Customer Churn Prediction Analysis",
+                category: "Machine Learning | Python | Predictive Analytics",
+                description: "Developed ML models to predict customer churn and identify key factors driving attrition for telecom clients.",
+                longDescription: "This project involved developing machine learning models to predict customer churn for a telecom provider. Using Python and scikit-learn, we identified at-risk customers and key factors driving attrition, enabling proactive retention strategies.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Jupyter"],
+                achievements: [
+                    "Achieved 85% accuracy in predicting customer churn",
+                    "Identified top 3 factors contributing to customer attrition",
+                    "Enabled targeted retention campaigns saving 18% of at-risk customers",
+                    "Reduced customer acquisition costs by focusing on high-retention segments"
+                ],
+                type: "ml",
+                industry: "telecom",
+                tech: ["python"],
+                date: "2023-04-10",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 3,
+                title: "Financial Performance Analysis",
+                category: "Excel | Financial Modeling | KPI Tracking",
+                description: "Advanced Excel dashboard for tracking financial KPIs, revenue analysis, and expense management with automated reporting.",
+                longDescription: "Advanced Excel dashboard for comprehensive financial performance analysis. This solution automated financial reporting and provided real-time insights into revenue, expenses, and profitability metrics for small and medium businesses.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Excel", "Power Query", "VBA", "Pivot Tables", "Financial Modeling"],
+                achievements: [
+                    "Reduced financial reporting time by 75% through automation",
+                    "Identified cost-saving opportunities resulting in 12% expense reduction",
+                    "Improved cash flow forecasting accuracy by 30%",
+                    "Provided real-time visibility into financial performance across departments"
+                ],
+                type: "dashboard",
+                industry: "finance",
+                tech: ["excel"],
+                date: "2023-02-20",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 4,
+                title: "Employee Attrition Database Analysis",
+                category: "SQL | HR Analytics | Database Management",
+                description: "SQL-based analysis of employee attrition patterns across departments with data-driven retention recommendations.",
+                longDescription: "SQL-based analysis of employee attrition patterns across departments and tenure levels. This project helped identify key factors influencing turnover and provided data-driven recommendations for improving employee retention.",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["SQL", "Database Design", "HR Analytics", "Data Modeling"],
+                achievements: [
+                    "Identified departments with 20% higher than average attrition rates",
+                    "Discovered that employees with less than 2 years tenure had 40% higher churn",
+                    "Developed retention strategies that reduced overall attrition by 15%",
+                    "Created predictive model for identifying at-risk employees"
+                ],
+                type: "analysis",
+                industry: "hr",
+                tech: ["sql"],
+                date: "2023-01-15",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 5,
+                title: "Sales Forecasting with Time Series",
+                category: "R Programming | Time Series | Predictive Modeling",
+                description: "Time series analysis using R to predict future sales trends with ARIMA and ETS models for inventory planning.",
+                longDescription: "Time series analysis and forecasting project using R to predict future sales trends. Implemented ARIMA and ETS models to provide accurate sales projections, enabling better inventory planning and resource allocation.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["R Programming", "Time Series", "ARIMA", "Forecasting", "ggplot2"],
+                achievements: [
+                    "Achieved 92% accuracy in sales trend predictions",
+                    "Reduced forecasting errors by 35% compared to traditional methods",
+                    "Identified seasonal patterns leading to optimized inventory management",
+                    "Enabled proactive business planning with 6-month sales projections"
+                ],
+                type: "ml",
+                industry: "retail",
+                tech: ["r"],
+                date: "2022-11-10",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 6,
+                title: "Personal Portfolio Website",
+                category: "Web Development | HTML/CSS | JavaScript",
+                description: "Responsive portfolio website built from scratch with interactive elements and multi-language support.",
+                longDescription: "Designed and developed a responsive portfolio website from scratch to showcase data analytics projects and professional skills. The website features interactive elements, multi-language support, and a modern, user-friendly design.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "UI/UX"],
+                achievements: [
+                    "Created fully responsive design compatible with all devices",
+                    "Implemented multi-language support for global accessibility",
+                    "Integrated interactive project galleries and modal details",
+                    "Achieved 95+ Google PageSpeed score for optimal performance"
+                ],
+                type: "webapp",
+                industry: "technology",
+                tech: ["web"],
+                date: "2022-10-01",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 7,
+                title: "Global Super Store Sales Report",
+                category: "Power BI | Sales Analytics | Global Business",
+                description: "Comprehensive analysis of global retail sales performance with regional comparisons and profit analysis.",
+                longDescription: "Analysis of global retail sales data across multiple regions and product categories. This dashboard provides insights into sales performance, profit margins, and regional comparisons to support strategic decision-making.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "DAX", "Data Modeling", "KPI Tracking"],
+                achievements: [
+                    "Identified underperforming regions with 25% below average sales",
+                    "Optimized product placement increasing sales by 18% in targeted regions",
+                    "Reduced shipping costs by 15% through route optimization",
+                    "Provided real-time sales tracking across 15 countries"
+                ],
+                type: "dashboard",
+                industry: "retail",
+                tech: ["powerbi"],
+                date: "2022-08-20",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 8,
+                title: "Pakistan Ecommerce Sales Report",
+                category: "Power BI | Ecommerce Analytics | Market Research",
+                description: "Analysis of e-commerce sales data in Pakistan with customer behavior insights and revenue tracking.",
+                longDescription: "Comprehensive analysis of e-commerce sales data in Pakistan, focusing on customer behavior, purchase patterns, and revenue optimization. This dashboard helped identify growth opportunities and customer segmentation strategies.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Sales Analytics", "Customer Insights", "Market Analysis"],
+                achievements: [
+                    "Identified 4 distinct customer segments with unique buying behaviors",
+                    "Improved marketing campaign ROI by 28% through targeted messaging",
+                    "Increased average order value by 15% through cross-selling recommendations",
+                    "Reduced cart abandonment rate by 22% through UX improvements"
+                ],
+                type: "dashboard",
+                industry: "ecommerce",
+                tech: ["powerbi"],
+                date: "2022-07-15",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 9,
+                title: "OLX Pakistan Cars Sales Report",
+                category: "Power BI | Marketplace Analytics | Automotive",
+                description: "Analysis of car sales data from OLX Pakistan with pricing trends and market demand insights.",
+                longDescription: "Analysis of car sales data from OLX Pakistan marketplace, focusing on pricing trends, demand patterns, and market insights. This dashboard helped identify popular car models, price benchmarks, and seasonal demand fluctuations.",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Market Analysis", "Price Trends", "Sales Analytics"],
+                achievements: [
+                    "Identified most popular car models with 30% higher resale value",
+                    "Discovered seasonal pricing patterns enabling better buying/selling timing",
+                    "Created pricing benchmarks reducing negotiation time by 40%",
+                    "Provided market demand forecasts with 85% accuracy"
+                ],
+                type: "dashboard",
+                industry: "automotive",
+                tech: ["powerbi"],
+                date: "2022-06-10",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 10,
+                title: "Swiggy Restaurant Dashboard",
+                category: "Power BI | Food Delivery | Operations Analytics",
+                description: "Restaurant performance dashboard for Swiggy food delivery service with order tracking and customer insights.",
+                longDescription: "Restaurant performance dashboard for Swiggy food delivery service, providing insights into order patterns, customer preferences, and operational efficiency. This dashboard helped restaurants optimize their menus and delivery operations.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Operations Analytics", "Performance Tracking", "Customer Behavior"],
+                achievements: [
+                    "Reduced average delivery time by 18% through route optimization",
+                    "Increased restaurant ratings by 1.2 stars through performance insights",
+                    "Identified top-performing menu items increasing sales by 22%",
+                    "Provided real-time order tracking reducing customer complaints by 35%"
+                ],
+                type: "dashboard",
+                industry: "food",
+                tech: ["powerbi"],
+                date: "2022-05-05",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 11,
+                title: "Job Market Report",
+                category: "Power BI | HR Analytics | Market Research",
+                description: "Analysis of job market data with skill demand trends and employment statistics across industries.",
+                longDescription: "Comprehensive analysis of job market data, focusing on skill demand trends, employment statistics, and industry growth patterns. This dashboard provided insights for career planning and talent acquisition strategies.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Power BI", "HR Analytics", "Market Research", "Data Visualization"],
+                achievements: [
+                    "Identified fastest-growing job roles with 35% annual growth",
+                    "Mapped skill demand trends enabling better educational planning",
+                    "Provided salary benchmarks reducing hiring time by 25%",
+                    "Created regional employment heatmaps for targeted job searches"
+                ],
+                type: "dashboard",
+                industry: "hr",
+                tech: ["powerbi"],
+                date: "2022-04-01",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 12,
+                title: "Chicago Crimes Report",
+                category: "Power BI | Public Safety | Geospatial Analysis",
+                description: "Comprehensive analysis of Chicago crime data with geographic mapping and temporal trend analysis.",
+                longDescription: "Comprehensive analysis of Chicago crime data, focusing on geographic patterns, temporal trends, and crime type distributions. This dashboard helped identify high-risk areas and seasonal crime patterns for better resource allocation.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Geospatial Analysis", "Public Data", "Trend Analysis"],
+                achievements: [
+                    "Identified 5 high-crime areas with 40% above average incident rates",
+                    "Discovered seasonal crime patterns enabling better patrol allocation",
+                    "Reduced response time by 18% through optimized resource deployment",
+                    "Provided predictive crime hotspots with 80% accuracy"
+                ],
+                type: "dashboard",
+                industry: "public",
+                tech: ["powerbi"],
+                date: "2022-03-15",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 13,
+                title: "Palestine Analysis Dashboard",
+                category: "R Programming | Power BI | Humanitarian Data",
+                description: "Comprehensive analysis of humanitarian data with visualizations of impact and trends.",
+                longDescription: "Comprehensive analysis of humanitarian data focusing on impact assessment and trend visualization. This project involved data extraction, cleaning, and visualization to provide insights into various aspects of the situation.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["R Programming", "Power BI", "Data Extraction", "Humanitarian Analysis"],
+                achievements: [
+                    "Processed and analyzed multiple complex datasets",
+                    "Created comprehensive visualizations of trends and patterns",
+                    "Provided data-driven insights for decision-making",
+                    "Automated data extraction and processing workflows"
+                ],
+                type: "research",
+                industry: "public",
+                tech: ["r", "powerbi"],
+                date: "2022-02-10",
+                duration: "8 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 14,
+                title: "Formula 1 Racing Data Analysis",
+                category: "Python | Data Analysis | Sports Analytics",
+                description: "Analysis of Formula 1 racing data with performance metrics and race outcome predictions.",
+                longDescription: "Comprehensive analysis of Formula 1 racing data, focusing on performance metrics, race outcomes, and driver/team comparisons. This project involved statistical analysis and visualization of historical race data.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Python", "Pandas", "Matplotlib", "Sports Analytics"],
+                achievements: [
+                    "Identified key performance indicators for race success",
+                    "Created predictive models for race outcomes with 75% accuracy",
+                    "Analyzed driver performance across different track types",
+                    "Provided team strategy recommendations based on historical data"
+                ],
+                type: "analysis",
+                industry: "sports",
+                tech: ["python"],
+                date: "2022-01-20",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 15,
+                title: "House Rent Price Analysis",
+                category: "Python | Regression Analysis | Real Estate",
+                description: "Analysis of house rent prices with predictive modeling and market trend identification.",
+                longDescription: "Comprehensive analysis of house rent prices using regression analysis and predictive modeling. This project identified key factors influencing rental prices and provided market trend insights.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Python", "Regression Analysis", "Predictive Modeling", "Real Estate Analytics"],
+                achievements: [
+                    "Developed rent price prediction model with 88% accuracy",
+                    "Identified 5 key factors influencing rental prices",
+                    "Created neighborhood value heatmaps for investment planning",
+                    "Provided rental yield calculations for property investors"
+                ],
+                type: "ml",
+                industry: "realestate",
+                tech: ["python"],
+                date: "2021-12-15",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 16,
+                title: "Temperature Rise Analysis",
+                category: "R Programming | Climate Data | Time Series Analysis",
+                description: "Analysis of global temperature data with trend identification and climate change insights.",
+                longDescription: "Analysis of global temperature data using time series analysis and statistical modeling. This project identified long-term trends and provided insights into climate change patterns.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["R Programming", "Time Series Analysis", "Climate Data", "Statistical Modeling"],
+                achievements: [
+                    "Identified significant warming trends across multiple regions",
+                    "Created predictive models for future temperature projections",
+                    "Analyzed seasonal variations and long-term patterns",
+                    "Provided data visualizations for climate communication"
+                ],
+                type: "research",
+                industry: "environment",
+                tech: ["r"],
+                date: "2021-11-10",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 17,
+                title: "Advanced House Price Prediction",
+                category: "Python | Machine Learning | Regression Models",
+                description: "Advanced regression models for house price prediction with feature engineering and model optimization.",
+                longDescription: "Development of advanced regression models for house price prediction, incorporating feature engineering, model selection, and hyperparameter optimization. This project achieved high accuracy in price predictions.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Python", "Machine Learning", "Regression", "Feature Engineering"],
+                achievements: [
+                    "Achieved 92% accuracy in house price predictions",
+                    "Implemented advanced feature engineering techniques",
+                    "Compared multiple regression algorithms for optimal performance",
+                    "Created interpretable models with feature importance analysis"
+                ],
+                type: "ml",
+                industry: "realestate",
+                tech: ["python"],
+                date: "2021-10-05",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 18,
+                title: "Exploratory Data Analysis - Real World Dataset",
+                category: "Python | Data Exploration | Visualization",
+                description: "Comprehensive exploratory data analysis of a complex real-world dataset with insights and visualizations.",
+                longDescription: "Comprehensive exploratory data analysis of a complex real-world dataset, involving data cleaning, transformation, and visualization. This project uncovered hidden patterns and provided actionable insights.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Python", "Pandas", "Seaborn", "Data Exploration"],
+                achievements: [
+                    "Uncovered 3 previously unknown data patterns",
+                    "Created comprehensive data quality assessment",
+                    "Developed interactive visualizations for data exploration",
+                    "Provided data-driven recommendations for business decisions"
+                ],
+                type: "analysis",
+                industry: "multiple",
+                tech: ["python"],
+                date: "2021-09-01",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 19,
+                title: "Data Visualization with Python and R",
+                category: "Python | R Programming | Data Visualization",
+                description: "Comparative data visualization project using both Python and R for comprehensive analysis.",
+                longDescription: "Comparative data visualization project using both Python and R programming languages. This project demonstrated the strengths of each language for different types of visualizations and analysis.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Python", "R Programming", "Matplotlib", "ggplot2", "Seaborn"],
+                achievements: [
+                    "Created identical visualizations in both Python and R",
+                    "Compared performance and ease of use for different chart types",
+                    "Developed best practices for visualization in each language",
+                    "Provided guidance on language selection for specific visualization tasks"
+                ],
+                type: "visualization",
+                industry: "technology",
+                tech: ["python", "r"],
+                date: "2021-08-15",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 20,
+                title: "Real World Data Analysis with R and Shiny",
+                category: "R Programming | Shiny | Interactive Dashboards",
+                description: "Interactive web dashboard using R Shiny for real-world data analysis and visualization.",
+                longDescription: "Development of an interactive web dashboard using R Shiny for real-world data analysis and visualization. This project created a user-friendly interface for exploring complex datasets.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["R Programming", "Shiny", "Interactive Dashboards", "Web Applications"],
+                achievements: [
+                    "Created fully interactive dashboard with multiple visualization types",
+                    "Implemented user authentication and data security features",
+                    "Optimized performance for large datasets",
+                    "Provided real-time data updates and filtering capabilities"
+                ],
+                type: "webapp",
+                industry: "multiple",
+                tech: ["r"],
+                date: "2021-07-10",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 21,
+                title: "IBM Data Science Assignment - Stock Revenue Dashboard",
+                category: "Python | Data Visualization | Financial Analysis",
+                description: "Stock revenue dashboard as part of IBM Data Science professional certificate program.",
+                longDescription: "Development of a stock revenue dashboard as part of the IBM Data Science professional certificate program. This project involved data collection, analysis, and visualization of stock market data.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Python", "Pandas", "Matplotlib", "Financial Analysis"],
+                achievements: [
+                    "Implemented automated data collection from multiple sources",
+                    "Created comprehensive revenue analysis and visualization",
+                    "Developed interactive charts for stock performance comparison",
+                    "Provided investment insights based on historical data"
+                ],
+                type: "dashboard",
+                industry: "finance",
+                tech: ["python"],
+                date: "2021-06-05",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 22,
+                title: "Data-Driven Crime Analysis",
+                category: "Python | Data Analysis | Public Safety",
+                description: "Data-driven analysis of crime patterns with predictive modeling and hotspot identification.",
+                longDescription: "Data-driven analysis of crime patterns using statistical methods and predictive modeling. This project identified crime hotspots and provided insights for resource allocation and prevention strategies.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Python", "Data Analysis", "Predictive Modeling", "Public Safety"],
+                achievements: [
+                    "Identified 7 high-crime hotspots with predictive accuracy",
+                    "Developed crime prediction models with 80% accuracy",
+                    "Created temporal analysis of crime patterns",
+                    "Provided data-driven recommendations for patrol allocation"
+                ],
+                type: "analysis",
+                industry: "public",
+                tech: ["python"],
+                date: "2021-05-01",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 23,
+                title: "Excel Business Intelligence Dashboard",
+                category: "Excel | Business Intelligence | Data Analysis",
+                description: "Comprehensive business intelligence dashboard built entirely in Excel with advanced features.",
+                longDescription: "Development of a comprehensive business intelligence dashboard built entirely in Excel, utilizing advanced features like Power Query, Power Pivot, and advanced formulas. This dashboard provided insights for business decision-making.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Excel", "Power Query", "Power Pivot", "Business Intelligence"],
+                achievements: [
+                    "Created dynamic dashboards with real-time data updates",
+                    "Implemented advanced data modeling relationships",
+                    "Developed automated reporting workflows",
+                    "Provided interactive filtering and drill-down capabilities"
+                ],
+                type: "dashboard",
+                industry: "multiple",
+                tech: ["excel"],
+                date: "2021-04-15",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 24,
+                title: "CarDekho Sales Dashboard",
+                category: "Power BI | Automotive Analytics | Sales Performance",
+                description: "Sales performance dashboard for CarDekho with inventory management and customer insights.",
+                longDescription: "Development of a sales performance dashboard for CarDekho, focusing on inventory management, sales tracking, and customer insights. This dashboard helped optimize sales strategies and inventory planning.",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Sales Analytics", "Inventory Management", "Customer Insights"],
+                achievements: [
+                    "Reduced inventory carrying costs by 20% through optimization",
+                    "Increased sales conversion rate by 15% through targeted strategies",
+                    "Identified high-demand vehicle models for inventory planning",
+                    "Provided customer segmentation for personalized marketing"
+                ],
+                type: "dashboard",
+                industry: "automotive",
+                tech: ["powerbi"],
+                date: "2021-03-10",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 25,
+                title: "Netflix Stock Price Dashboard",
+                category: "Power BI | Financial Analysis | Time Series",
+                description: "Comprehensive analysis of Netflix stock price performance with trend analysis and predictions.",
+                longDescription: "Comprehensive analysis of Netflix stock price performance using time series analysis and financial metrics. This dashboard provided insights into stock performance, volatility, and investment potential.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Power BI", "Financial Analysis", "Time Series", "Stock Market"],
+                achievements: [
+                    "Identified key factors influencing stock price movements",
+                    "Created volatility analysis and risk assessment",
+                    "Developed comparative analysis with industry peers",
+                    "Provided investment recommendations based on historical patterns"
+                ],
+                type: "dashboard",
+                industry: "finance",
+                tech: ["powerbi"],
+                date: "2021-02-05",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 26,
+                title: "Disney+ Netflix Comparison Dashboard",
+                category: "Power BI | Streaming Services | Market Analysis",
+                description: "Comparative analysis of Disney+ and Netflix streaming services with content and subscriber insights.",
+                longDescription: "Comparative analysis of Disney+ and Netflix streaming services, focusing on content libraries, subscriber growth, and market positioning. This dashboard provided insights into competitive strategies and market trends.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Market Analysis", "Competitive Intelligence", "Streaming Services"],
+                achievements: [
+                    "Analyzed content library composition and exclusivity",
+                    "Compared subscriber growth patterns and retention rates",
+                    "Identified market positioning and competitive advantages",
+                    "Provided strategic recommendations for content acquisition"
+                ],
+                type: "dashboard",
+                industry: "entertainment",
+                tech: ["powerbi"],
+                date: "2021-01-20",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 27,
+                title: "Insurance Data Analysis",
+                category: "Power BI | Insurance Analytics | Risk Assessment",
+                description: "Comprehensive analysis of insurance data with risk assessment and claims prediction.",
+                longDescription: "Comprehensive analysis of insurance data, focusing on risk assessment, claims prediction, and customer segmentation. This dashboard helped optimize insurance products and pricing strategies.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Power BI", "Insurance Analytics", "Risk Assessment", "Predictive Modeling"],
+                achievements: [
+                    "Developed risk assessment models with 85% accuracy",
+                    "Identified high-risk customer segments for targeted underwriting",
+                    "Optimized insurance pricing based on risk profiles",
+                    "Reduced claims processing time by 30% through automation"
+                ],
+                type: "dashboard",
+                industry: "insurance",
+                tech: ["powerbi"],
+                date: "2020-12-15",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 28,
+                title: "Broker Performance Dashboard",
+                category: "Power BI | Financial Services | Performance Tracking",
+                description: "Performance tracking dashboard for financial brokers with commission analysis and client insights.",
+                longDescription: "Development of a performance tracking dashboard for financial brokers, focusing on commission analysis, client management, and productivity metrics. This dashboard helped optimize broker performance and client relationships.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Performance Tracking", "Financial Services", "Client Management"],
+                achievements: [
+                    "Increased broker productivity by 22% through performance insights",
+                    "Identified top-performing strategies for replication",
+                    "Optimized commission structures based on performance data",
+                    "Improved client retention by 18% through better relationship management"
+                ],
+                type: "dashboard",
+                industry: "finance",
+                tech: ["powerbi"],
+                date: "2020-11-10",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 29,
+                title: "Medical Premium Data Visualization",
+                category: "Power BI | Healthcare Analytics | Insurance",
+                description: "Visualization of medical premium data with cost analysis and trend identification.",
+                longDescription: "Visualization of medical premium data, focusing on cost analysis, trend identification, and demographic patterns. This dashboard provided insights for insurance product development and pricing strategies.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Power BI", "Healthcare Analytics", "Data Visualization", "Insurance"],
+                achievements: [
+                    "Identified cost drivers for medical premiums",
+                    "Analyzed demographic patterns in healthcare utilization",
+                    "Created predictive models for premium pricing",
+                    "Provided insights for product development and market positioning"
+                ],
+                type: "visualization",
+                industry: "healthcare",
+                tech: ["powerbi"],
+                date: "2020-10-05",
+                duration: "3 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 30,
+                title: "Prism Insurance Dashboard",
+                category: "Power BI | Insurance | Claims Analysis",
+                description: "Comprehensive insurance dashboard for Prism Insurance with claims analysis and risk assessment.",
+                longDescription: "Development of a comprehensive insurance dashboard for Prism Insurance, focusing on claims analysis, risk assessment, and operational efficiency. This dashboard helped optimize insurance operations and customer service.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Power BI", "Insurance", "Claims Analysis", "Risk Assessment"],
+                achievements: [
+                    "Reduced claims processing time by 35% through workflow optimization",
+                    "Identified fraudulent claim patterns saving $2.5M annually",
+                    "Improved customer satisfaction by 25% through faster service",
+                    "Optimized risk assessment models reducing underwriting losses by 18%"
+                ],
+                type: "dashboard",
+                industry: "insurance",
+                tech: ["powerbi"],
+                date: "2020-09-01",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 31,
+                title: "Retail Data Analysis Project",
+                category: "Python | Retail Analytics | Sales Optimization",
+                description: "Comprehensive retail data analysis with sales optimization and inventory management insights.",
+                longDescription: "Comprehensive retail data analysis project, focusing on sales optimization, inventory management, and customer behavior. This project provided actionable insights for retail operations and strategy.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["Python", "Retail Analytics", "Sales Optimization", "Inventory Management"],
+                achievements: [
+                    "Optimized product placement increasing sales by 20%",
+                    "Reduced inventory costs by 25% through better management",
+                    "Identified customer segments for targeted marketing",
+                    "Provided sales forecasting with 90% accuracy"
+                ],
+                type: "analysis",
+                industry: "retail",
+                tech: ["python"],
+                date: "2020-08-15",
+                duration: "5 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 32,
+                title: "Retail Sales Visualization and Insights",
+                category: "Tableau | Data Visualization | Retail Analytics",
+                description: "Advanced retail sales visualization with interactive dashboards and actionable insights.",
+                longDescription: "Development of advanced retail sales visualizations using Tableau, creating interactive dashboards with actionable insights. This project helped stakeholders understand sales patterns and make data-driven decisions.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["Tableau", "Data Visualization", "Retail Analytics", "Interactive Dashboards"],
+                achievements: [
+                    "Created interactive dashboards with drill-down capabilities",
+                    "Implemented real-time data updates and alerts",
+                    "Developed custom visualizations for specific business needs",
+                    "Provided training and documentation for dashboard users"
+                ],
+                type: "visualization",
+                industry: "retail",
+                tech: ["tableau"],
+                date: "2020-07-10",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 33,
+                title: "MWMC Performance Analysis",
+                category: "SPSS | Survey Analysis | Public Services",
+                description: "Field survey and analysis of MWMC workers performance and public satisfaction across Multan.",
+                longDescription: "Field survey and analysis of MWMC (Multan Waste Management Company) workers performance and public satisfaction. This project involved survey design, data collection, and statistical analysis using SPSS.",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["SPSS", "Survey Analysis", "Public Services", "Statistical Analysis"],
+                achievements: [
+                    "Surveyed 500+ residents across 20 neighborhoods in Multan",
+                    "Identified 3 key factors affecting public satisfaction with waste management",
+                    "Developed performance improvement plan resulting in 25% increase in service efficiency",
+                    "Created public awareness campaign that improved recycling participation by 40%"
+                ],
+                type: "research",
+                industry: "public",
+                tech: ["spss"],
+                date: "2020-06-05",
+                duration: "6 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 34,
+                title: "Statistical Modeling Research",
+                category: "R Programming | Statistical Modeling | M.Phil. Thesis",
+                description: "Research project on advanced statistical modeling techniques applied to economic datasets.",
+                longDescription: "Research project on advanced statistical modeling techniques applied to economic datasets as part of M.Phil. thesis. This project explored complex statistical methods and their applications in economic analysis.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+                technologies: ["R Programming", "Statistical Modeling", "Economic Analysis", "Research"],
+                achievements: [
+                    "Developed novel econometric model for emerging markets analysis",
+                    "Published research in 2 peer-reviewed academic journals",
+                    "Presented findings at 3 international economics conferences",
+                    "Model achieved 89% accuracy in predicting market trends"
+                ],
+                type: "research",
+                industry: "academia",
+                tech: ["r"],
+                date: "2020-05-01",
+                duration: "12 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            },
+            {
+                id: 35,
+                title: "STAT211 Data Analysis Project",
+                category: "R Programming | Statistical Analysis | Academic Research",
+                description: "Statistical analysis project for STAT211 course with regression modeling and hypothesis testing.",
+                longDescription: "Statistical analysis project for STAT211 course, involving regression modeling, hypothesis testing, and data interpretation. This project demonstrated application of statistical methods to real-world data.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80",
+                technologies: ["R Programming", "Statistical Analysis", "Regression Modeling", "Hypothesis Testing"],
+                achievements: [
+                    "Applied multiple regression techniques to complex dataset",
+                    "Developed and tested statistical hypotheses",
+                    "Created comprehensive analysis report with visualizations",
+                    "Achieved top grade in course for project excellence"
+                ],
+                type: "research",
+                industry: "academia",
+                tech: ["r"],
+                date: "2020-04-15",
+                duration: "4 weeks",
+                liveDemo: "#",
+                sourceCode: "#"
+            }
+        ];
+
+        // Update total projects count
+        document.getElementById('total-projects').textContent = allProjects.length + '+';
+
+        // Filter and Search Functionality
+        const projectsGrid = document.getElementById('projects-grid');
+        const noResults = document.getElementById('no-results');
+        const searchInput = document.getElementById('project-search');
+        const techFilters = document.querySelectorAll('#tech-filters .filter-btn');
+        const typeFilters = document.querySelectorAll('#type-filters .filter-btn');
+        const industryFilters = document.querySelectorAll('#industry-filters .filter-btn');
+        const applyFiltersBtn = document.getElementById('apply-filters');
+        const resetFiltersBtn = document.getElementById('reset-filters');
+
+        let activeFilters = {
+            tech: 'all',
+            type: 'all',
+            industry: 'all',
+            search: ''
+        };
+
+        // Render projects based on current filters
+        function renderProjects() {
+            projectsGrid.innerHTML = '';
+            
+            const filteredProjects = allProjects.filter(project => {
+                // Technology filter
+                if (activeFilters.tech !== 'all' && !project.tech.includes(activeFilters.tech)) {
+                    return false;
+                }
+                
+                // Type filter
+                if (activeFilters.type !== 'all' && project.type !== activeFilters.type) {
+                    return false;
+                }
+                
+                // Industry filter
+                if (activeFilters.industry !== 'all' && project.industry !== activeFilters.industry) {
+                    return false;
+                }
+                
+                // Search filter
+                if (activeFilters.search !== '') {
+                    const searchTerm = activeFilters.search.toLowerCase();
+                    const searchableText = `
+                        ${project.title} 
+                        ${project.category} 
+                        ${project.description} 
+                        ${project.technologies.join(' ')}
+                    `.toLowerCase();
+                    
+                    if (!searchableText.includes(searchTerm)) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            });
+            
+            if (filteredProjects.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+                
+                filteredProjects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.setAttribute('data-aos', 'fade-up');
+                    projectCard.innerHTML = `
+                        <div class="project-img">
+                            <img src="${project.image}" alt="${project.title}">
+                            <div class="project-badge">${project.technologies[0]}</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${project.title}</h3>
+                            <span class="project-category">${project.category}</span>
+                            <p class="project-desc">${project.description}</p>
+                            <div class="project-meta">
+                                <div class="project-date">
+                                    <i class="far fa-calendar"></i> ${new Date(project.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                                </div>
+                                <div class="project-duration">
+                                    <i class="far fa-clock"></i> ${project.duration}
+                                </div>
+                            </div>
+                            <div class="tech-stack">
+                                ${project.technologies.map(tech => `<span class="tech">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="project-link view-details" data-project="${project.id}">
+                                    <i class="fas fa-eye"></i> View Details
+                                </a>
+                                <a href="${project.liveDemo}" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    projectsGrid.appendChild(projectCard);
+                });
+                
+                // Reattach event listeners to the new project cards
+                document.querySelectorAll('.view-details').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const projectId = btn.getAttribute('data-project');
+                        openProjectModal(projectId);
+                    });
+                });
+            }
+        }
+
+        // Open project modal with details
+        function openProjectModal(projectId) {
+            const project = allProjects.find(p => p.id == projectId);
+            if (!project) return;
+            
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-subtitle').textContent = project.category;
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-overview').textContent = project.longDescription;
+            
+            // Clear and populate achievements
+            const achievementsList = document.getElementById('modal-achievements');
+            achievementsList.innerHTML = '';
+            project.achievements.forEach(achievement => {
+                const li = document.createElement('li');
+                li.textContent = achievement;
+                achievementsList.appendChild(li);
+            });
+            
+            // Clear and populate tech stack
+            const techStack = document.getElementById('modal-tech-stack');
+            techStack.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const span = document.createElement('span');
+                span.className = 'tech';
+                span.textContent = tech;
+                techStack.appendChild(span);
+            });
+            
+            // Set link URLs
+            document.getElementById('modal-live-demo').href = project.liveDemo;
+            document.getElementById('modal-source-code').href = project.sourceCode;
+            
+            // Show modal
+            document.getElementById('project-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Initialize filter buttons
+        function initializeFilters() {
+            // Technology filters
+            techFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    techFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilters.tech = btn.getAttribute('data-filter');
+                });
+            });
+            
+            // Type filters
+            typeFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    typeFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilters.type = btn.getAttribute('data-filter');
+                });
+            });
+            
+            // Industry filters
+            industryFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    industryFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilters.industry = btn.getAttribute('data-filter');
+                });
+            });
+            
+            // Search input
+            searchInput.addEventListener('input', (e) => {
+                activeFilters.search = e.target.value;
+            });
+            
+            // Apply filters button
+            applyFiltersBtn.addEventListener('click', () => {
+                renderProjects();
+            });
+            
+            // Reset filters button
+            resetFiltersBtn.addEventListener('click', () => {
+                activeFilters = {
+                    tech: 'all',
+                    type: 'all',
+                    industry: 'all',
+                    search: ''
+                };
+                
+                // Reset UI
+                techFilters.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-filter') === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                typeFilters.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-filter') === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                industryFilters.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-filter') === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                searchInput.value = '';
+                
+                renderProjects();
+            });
+        }
+
+        // Project Modal functionality
+        const modal = document.getElementById('project-modal');
+        const closeModal = document.querySelector('.modal-close');
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize the page
+        function init() {
+            renderProjects();
+            initializeFilters();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
