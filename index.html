@@ -2898,7 +2898,7 @@
                     <h3 data-translate="send-message">Send a Message</h3>
                     <form id="contactForm" action="https://formspree.io/f/xlgggvzp" method="POST">
                         <input type="hidden" name="_subject" value="New Contact Form Message - ElevateWithWasiq">
-                        <input type="hidden" name="_next" value="https://elevate-with-wasiq.vercel.app/#contact">
+                        <input type="hidden" name="_next" value="https://elevate-with-wasiq.vercel.app/#contact?success=true"">
                         <div class="form-group">
                             <label for="name" data-translate="full-name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -4385,41 +4385,6 @@
             });
         }
     </script>
-
-    <script>
-    // Mobile menu toggle (Keep this part)
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-    }
-
-    // SIMPLE VERSION: Just show loading, then let Formspree redirect
-    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // Let the form submit normally to Formspree
-        // Formspree will handle the redirect/success page
-    });
-</script>
 
 </body>
 </html>
