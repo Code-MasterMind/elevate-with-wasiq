@@ -4387,160 +4387,39 @@
     </script>
 
     <script>
-        // Mobile menu toggle (Keep this part if you have it)
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.innerHTML = navLinks.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                });
-            });
-        }
-
-        // FIXED: Form submission handling
-        document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                // Send form data to Formspree
-                const formData = new FormData(form);
-                
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                // Check the response
-                if (response.ok) {
-                    // Formspree returns 200 even on validation errors, so we need to check the JSON
-                    const result = await response.json();
-                    
-                    if (result.ok) {
-                        // SUCCESS: Message was sent
-                        showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
-                        form.reset();
-                    } else {
-                        // Formspree returned an error (like validation error)
-                        showToast('Please check your form and try again.', 'error');
-                    }
-                } else {
-                    // HTTP error (like 404, 500, etc.)
-                    showToast('Server error. Please try again later.', 'error');
-                }
-            } catch (error) {
-                // Network error
-                showToast('Network error. Please check your connection.', 'error');
-                console.error('Form submission error:', error);
-            } finally {
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
+    // Mobile menu toggle (Keep this part)
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
-
-        // Toast notification function (better than alert)
-        function showToast(message, type = 'info') {
-            // Remove existing toast if any
-            const existingToast = document.querySelector('.toast-notification');
-            if (existingToast) {
-                existingToast.remove();
-            }
-            
-            // Create toast element
-            const toast = document.createElement('div');
-            toast.className = `toast-notification toast-${type}`;
-            toast.innerHTML = `
-                <div class="toast-content">
-                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                    <span>${message}</span>
-                </div>
-                <button class="toast-close"><i class="fas fa-times"></i></button>
-            `;
-            
-            // Add styles for toast
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: ${type === 'success' ? 'var(--success)' : 'var(--accent)'};
-                color: white;
-                padding: 15px 25px;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 15px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-                z-index: 10000;
-                animation: slideUp 0.3s ease;
-                max-width: 90%;
-                width: 350px;
-            `;
-            
-            // Add animation styles
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideUp {
-                    from { transform: translateX(-50%) translateY(100px); opacity: 0; }
-                    to { transform: translateX(-50%) translateY(0); opacity: 1; }
-                }
-                .toast-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-                .toast-close {
-                    background: none;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    padding: 5px;
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Add close button functionality
-            const closeBtn = toast.querySelector('.toast-close');
-            closeBtn.addEventListener('click', () => {
-                toast.style.animation = 'slideUp 0.3s ease reverse';
-                setTimeout(() => toast.remove(), 300);
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
-            
-            // Auto-remove after 5 seconds
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.style.animation = 'slideUp 0.3s ease reverse';
-                    setTimeout(() => toast.remove(), 300);
-                }
-            }, 5000);
-            
-            // Add to document
-            document.body.appendChild(toast);
-        }
-    </script>
+        });
+    }
+
+    // SIMPLE VERSION: Just show loading, then let Formspree redirect
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Let the form submit normally to Formspree
+        // Formspree will handle the redirect/success page
+    });
+</script>
 
 </body>
 </html>
