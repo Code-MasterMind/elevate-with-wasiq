@@ -2899,6 +2899,7 @@
                     <form id="contactForm" action="https://formspree.io/f/xlgggvzp" method="POST">
                         <input type="hidden" name="_subject" value="New Contact Form Message - ElevateWithWasiq">
                         <input type="hidden" name="_next" value="https://elevate-with-wasiq.vercel.app/#contact?success=true"">
+                        <input type="text" name="_gotcha" style="display:none">
                         <div class="form-group">
                             <label for="name" data-translate="full-name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -4383,6 +4384,18 @@
                     hamburger.innerHTML = '<i class="fas fa-bars"></i>';
                 });
             });
+        }
+    </script>
+
+    <script>
+        // Check for success message in URL
+        if (window.location.hash === '#contact' && window.location.search.includes('success=1')) {
+            // Show success message
+            alert('✅ Message sent successfully! I will reply to you soon.');
+            
+            // Clear the URL without refreshing
+            const newUrl = window.location.pathname + window.location.hash;
+            window.history.replaceState({}, document.title, newUrl);
         }
     </script>
 
